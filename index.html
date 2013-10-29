@@ -97,54 +97,135 @@
 				<section>
 					<h1>OWASP</h1>
 					<h2>Open Web Application Securit Project</h2>
+					<img src="images/owasp_logo.png" alt="">
 				</section>
 
+				<section>
+					<section>
+						<h2>OWASP Tools Project/es</h2>
+					</section>
+					<section>
+						<h2>DirBuster</h2>
+						<img src="images/dirbuster4.png" alt="">
+					</section>
+					<section>
+						<h2>JoomScan</h2>
+						<img src="images/joomscan.png" alt="">
+					</section>
+					<section>
+						<h2>GoLismero</h2>
+						<img src="images/report1.png" alt="">
+					</section>
+				</section>
 				<section>
 						<section>
 							<h1>Top 10 de OWASP</h1>
 						</section>
 						<section>
-							<h2>A1 Injection</h2>
-							<p>Corresponde a las inyección de código, siendo las inyecciones SQL una de las más comunes.</p>
-						</section>
-						<section>
-							<h2>A2 Broken Authentication and Session Management</h2>
-							<p>Corresponde al mal manejo de las sesiones en aquellas aplicaciones que utilizan autenticación.</p>
-						</section>
-						<section>
-							<h2>A3 Cross-Site Scripting (XSS)</h2>
-							<p>Ocurre cuando existe validación pobre de la información ingresada por el atacante.</p>
-						</section>
-						<section>
-							<h2>A4 Insecure Direct Object References</h2>
-							<p>Puede derivar en un acceso no autorizado a información crítica debido a errores en el diseño o desarrollo.</p>
-						</section>
-						<section>
-							<h2>A5 Security Misconfiguration</h2>
-							<p>Corresponde a configuraciones no adecuadas que pueden impactar en la seguridad de la propia aplicación.</p>
-						</section>
-						<section>
-							<h2>A6 Sensitive Data Exposure</h2>
-							<p>Se refiere a la protección incorrecta de datos críticos tales como, por ejemplo, números de tarjetas de crédito, contraseñas, entre otros.</p>
-						</section>
-						<section>
-							<h2>A7 Missing Function Level Access Control</h2>
-							<p>Corresponde a la falta de controles desde el servidor, permitiendo a un posible atacante acceder a funciones a las que no debería.</p>
-						</section>
-						<section>
-							<h2>A8 Cross-Site Request Forgery (CSRF)</h2>
-							<p>Permite a un atacante generar peticiones sobre una aplicación vulnerable a partir de la sesión de la víctima.</p>
+							<h2>A10 Unvalidated Redirects and Forwards</h2>
+							<p>Los atacantes aprovechan el uso de redirecciones de sitios web a otros sitios utilizando información no confiable (untrusted) para redirigir a las víctimas a sitios de phishing o que contienen malware.</p>
+							<p>ejemplo: phishing</p>
+							 <pre class="fragment"><code data-trim contenteditable>
+							 	http://www.example.org/redirigir.php?url=phishing.org
+						      </code></pre>
+							
 						</section>
 						<section>
 							<h2>A9 Using Known Vulnerable Components</h2>
 							<p>Corresponde a la explotación de librerías, frameworks y otros componentes vulnerables por parte de un atacante con el fin de obtener acceso o combinar con otros ataques.</p>
+							<p>Ejemplo: modulos y plugins de terceros en CMS</p>
 						</section>
 						<section>
-							<h2>A10 Unvalidated Redirects and Forwards</h2>
-							<p>Los atacantes aprovechan el uso de redirecciones de sitios web a otros sitios utilizando información no confiable (untrusted) para redirigir a las víctimas a sitios de phishing o que contienen malware.</p>
+							<h2>A8 Cross-Site Request Forgery (CSRF)</h2>
+							<p>Permite a un atacante generar peticiones sobre una aplicación vulnerable a partir de la sesión de la víctima.</p>
+							<p>Explota la confianza que sitio tiene en un usuario particular</p>
+							 <pre class="fragment"><code data-trim contenteditable>
+							 	http://example1.com/usuarios/eliminar/63
+						     </code></pre>
+							<pre class="fragment"><code data-trim contenteditable>
+								<img src="http://example1.com/usuarios/eliminar/63">
+						     </code></pre>
 						</section>
-				</section>
+						<section>
+							<h2>A7 Missing Function Level Access Control</h2>
+							<p>Corresponde a la falta de controles desde el servidor, permitiendo a un posible atacante acceder a funciones a las que no debería.</p>
+							<p>Ejemplo de esta falla de restricción de acceso a URL</p>
+							<pre class="fragment"><code data-trim contenteditable>
+							 	http://ejemplo.com/app/admin_getappInfo
+						     </code></pre>
+						</section>
+						<section>
+							<h2>A6 Sensitive Data Exposure</h2>
+							<p>Se refiere a la protección incorrecta de datos críticos tales como, por ejemplo, números de tarjetas de crédito, contraseñas, entre otros.</p>
+							Ejemplo: 
+								<ul>
+									<li>malas configuraciones en el decifrado de contraseñas en base de datos.</li>
+									<li>backups con informacion de mas.</li>
+								</ul>
+							
+						</section>
+						<section>
+							<h2>A5 Security Misconfiguration</h2>
+							<p>Corresponde a configuraciones no adecuadas que pueden impactar en la seguridad de la propia aplicación.</p>
+							<p>Ejemplos</p>
+							<ul>
+								<li>Cuentas predeterminadas</li>
+								<li>Archivos o directorios no protegidos</li>
+							</ul>
+						</section>
+						<section>
+							<h2>A4 Insecure Direct Object References</h2>
+							<p>Puede derivar en un acceso no autorizado a información crítica debido a errores en el diseño o desarrollo.</p>
+							Ejemplo: Datos no verificados en una consulta sql
+							<pre class="fragment"><code data-trim contenteditable>
+							 	http://example.com/app/accountInfo?acct=miUser
+						     </code></pre>
 
+							<pre class="fragment"><code data-trim contenteditable>
+							 	http://example.com/app/accountInfo?acct=otroUser
+						     </code></pre>
+
+						</section>
+						<section>
+							<h2>A3 Cross-Site Scripting (XSS)</h2>
+							<p>Ocurre cuando existe validación pobre de la información ingresada por el atacante.</p>
+							<p>Ejemplo</p>
+							<ul>
+								<li>phishing</li>
+								<li>robo de credenciales</li>
+								<li>ejecucion de acciones automaticas</li>
+							</ul>
+
+							<pre class="fragment"><code data-trim contenteditable>
+							 	 javascript:while(1)alert("Este mensaje saldra indefinidamente");
+						     </code></pre>
+
+						</section>
+						<section>
+							<h2>A2 Broken Authentication and Session Management</h2>
+							<p>Corresponde al mal manejo de las sesiones en aquellas aplicaciones que utilizan autenticación.</p>
+							<p>Ejemplo:</p>
+							<ul>
+								<li>No se establece tiempos de desconexion en la aplicacion</li>
+								<li>Identificadores de seseion en urls</li>
+							</ul>
+							<pre class="fragment"><code data-trim contenteditable>
+							 	http://example.com/sale/saleitems;jsessionid=2P0OC2JDPXM0OQSNDLPSKHCJUN2JV?dest=Hawaii
+						     </code></pre>
+						</section>
+						<section>
+							<h2>A1 Injection</h2>
+							<p>Corresponde a las inyección de código, siendo las inyecciones SQL una de las más comunes.</p>
+							<p>Ejemplos</p>
+							<ul>
+								<li>SQLi</li>
+								<li>LDAPi (inyecciones en protocolo ligero de accedo a directorios</li>
+							</ul>
+
+						</section>
+						
+				</section>
+	
 				<section>
 					<section>
 						<h2>A1 Injection</h2>
